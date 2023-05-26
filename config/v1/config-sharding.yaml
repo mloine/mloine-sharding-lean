@@ -26,7 +26,7 @@ databaseName: sharding_db
 
 dataSources:
   ds_1:
-    url: jdbc:mysql://172.22.113.207:3306/t_user_1?serverTimezone=UTC&useSSL=false
+    url: jdbc:postgresql://172.22.113.207:5432/t_user_1
     username: postgres
     password: 5tgb^YHN
     connectionTimeoutMilliseconds: 30000
@@ -35,7 +35,7 @@ dataSources:
     maxPoolSize: 50
     minPoolSize: 1
   ds_2:
-    url: jdbc:mysql://172.22.113.206:3306/t_user_2?serverTimezone=UTC&useSSL=false
+    url: jdbc:postgresql://172.22.113.206:5432/t_user_2
     username: postgres
     password: 5tgb^YHN
     connectionTimeoutMilliseconds: 30000
@@ -44,7 +44,7 @@ dataSources:
     maxPoolSize: 50
     minPoolSize: 1
   ds_3:
-    url: jdbc:mysql://172.22.113.207:3306/t_user_3?serverTimezone=UTC&useSSL=false
+    url: jdbc:postgresql://172.22.113.207:5432/t_user_3
     username: postgres
     password: 5tgb^YHN
     connectionTimeoutMilliseconds: 30000
@@ -53,7 +53,7 @@ dataSources:
     maxPoolSize: 50
     minPoolSize: 1
   ds_4:
-    url: jdbc:mysql://172.22.113.206:3306/t_user_4?serverTimezone=UTC&useSSL=false
+    url: jdbc:postgresql://172.22.113.206:5432/t_user_4
     username: postgres
     password: 5tgb^YHN
     connectionTimeoutMilliseconds: 30000
@@ -65,8 +65,8 @@ dataSources:
 rules:
 - !SHARDING
   tables:
-    t_order:
-      actualDataNodes: ds_${1..4}.sys_user_{0..1}
+    sys_user:
+      actualDataNodes: ds_${1..4}.sys_user_${0..1}
       tableStrategy:
         standard:
           shardingColumn: id

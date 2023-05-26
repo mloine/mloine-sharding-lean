@@ -1,0 +1,1 @@
+ psql -h 127.0.01 -p 3307 -d sharding_db -U root
