@@ -25,7 +25,7 @@
 databaseName: sharding_db
 
 dataSources:
-  ds_1:
+  ds_0:
     url: jdbc:postgresql://172.22.113.207:5432/t_user_1
     username: postgres
     password: 5tgb^YHN
@@ -34,7 +34,7 @@ dataSources:
     maxLifetimeMilliseconds: 1800000
     maxPoolSize: 50
     minPoolSize: 1
-  ds_2:
+  ds_1:
     url: jdbc:postgresql://172.22.113.206:5432/t_user_2
     username: postgres
     password: 5tgb^YHN
@@ -43,7 +43,7 @@ dataSources:
     maxLifetimeMilliseconds: 1800000
     maxPoolSize: 50
     minPoolSize: 1
-  ds_3:
+  ds_2:
     url: jdbc:postgresql://172.22.113.207:5432/t_user_3
     username: postgres
     password: 5tgb^YHN
@@ -52,7 +52,7 @@ dataSources:
     maxLifetimeMilliseconds: 1800000
     maxPoolSize: 50
     minPoolSize: 1
-  ds_4:
+  ds_3:
     url: jdbc:postgresql://172.22.113.206:5432/t_user_4
     username: postgres
     password: 5tgb^YHN
@@ -66,7 +66,7 @@ rules:
 - !SHARDING
   tables:
     sys_user:
-      actualDataNodes: ds_${1..4}.sys_user_${0..1}
+      actualDataNodes: ds_${0..3}.sys_user_${0..1}
       tableStrategy:
         standard:
           shardingColumn: id
@@ -93,7 +93,7 @@ rules:
     t_user_inline:
       type: INLINE
       props:
-        algorithm-expression: sys_user_{id % 2}
+        algorithm-expression: sys_user_${id % 2}
 
   
   keyGenerators:

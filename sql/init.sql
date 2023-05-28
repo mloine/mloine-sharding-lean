@@ -11,7 +11,7 @@ create table sys_dict
 (
     dict_key               text           not null,
     dict_value              text  not null
-)
+);
 
 
 
@@ -34,7 +34,7 @@ create table SYS_USER_0
     UPDATE_BY_NAME         character(50),
     CREATE_TIME            DATE,
     UPDATE_TIME            DATE
-)
+);
 
 
 
@@ -57,4 +57,9 @@ create table SYS_USER_1
     UPDATE_BY_NAME         character(50),
     CREATE_TIME            DATE,
     UPDATE_TIME            DATE
-)
+);
+
+
+
+
+
