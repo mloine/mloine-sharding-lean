@@ -1,4 +1,7 @@
 
+
+select * from sys_user where id =869876197255806988;
+
 insert into sys_dict values('name','xueyongkang');
 
 
