@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: root
+    username: root
+    url: jdbc:postgresql://kinneysharding001:3307/sharding_db
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 100
+      minimum-idle: 10
+      pool-name: mloine-1
