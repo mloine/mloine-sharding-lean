@@ -69,7 +69,7 @@ rules:
       actualDataNodes: ds_${0..3}.sys_user_${0..1}
       tableStrategy:
         standard:
-          shardingColumn: id
+          shardingColumn: staff_no
           shardingAlgorithmName: t_user_inline
       keyGenerateStrategy:
         column: id
@@ -91,9 +91,11 @@ rules:
       props:
         algorithm-expression: ds_${id % 4}
     t_user_inline:
-      type: INLINE
+      type: HASH_MOD
       props:
-        algorithm-expression: sys_user_${id % 2}
+        sharding-count: '2'
+#        algorithm-expression: sys_user_${id % 2}
+
 
   
   keyGenerators:
