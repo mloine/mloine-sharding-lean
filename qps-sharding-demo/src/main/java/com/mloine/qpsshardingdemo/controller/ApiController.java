@@ -19,12 +19,12 @@ public class ApiController {
     @Autowired
     SysUserDao sysUserDao;
 
-    @GetMapping("/{id}/{staffNo}")
-    public SysUser user(@PathVariable String id, @PathVariable String staffNo) {
+    @GetMapping("/{id}")
+    public SysUser user(@PathVariable Long id) {
 
-        return sysUserDao.selectOne(new QueryWrapper<SysUser>().eq("id", id).eq("staff_no", staffNo));
+//        return sysUserDao.selectOne(new QueryWrapper<SysUser>().eq("id", id).eq("staff_no", staffNo));
 //        return sysUserDao.cusSelectById(id);
-//        return sysUserDao.selectById(id);
+        return sysUserDao.selectById(id);
     }
 
 
@@ -113,3 +113,4 @@ public class ApiController {
         return blog;
     }
 }
+

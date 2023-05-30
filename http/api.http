@@ -4,7 +4,7 @@ Content-Type: application/json
 {}
 
 ###
-GET http://localhost:8080/user/869876197255806992/0017
+GET http://localhost:8080/user/1663485230676656129
 Accept: application/json
 
 ###
@@ -21,3 +21,19 @@ PUT http://localhost:8080/order/save
 
 ###
 POST http://localhost:8080/order/pages
+
+
+
+### JPA
+POST http://localhost:8080/user/jpa/pages
+Content-Type: application/json
+
+{}
+
+### JPA
+GET http://localhost:8080/user/jpa/1663485230676656129
+Accept: application/json
+
+### JPA
+PUT http://localhost:8080/user/jpa/save
+

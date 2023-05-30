@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -22,11 +23,16 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@Entity
+@Table(name = "sys_user")
 public class SysUser implements Serializable {
 
     private static final long serialVersionUID = 2632552477826087575L;
 
-    @TableField("id")
+    @Id
+    @TableField(value = "id")
+//    @GeneratedValue(strategy = GenerationType.TABLE)
+//    @Column(name = "id")
     private Long id;
 
     /**
@@ -87,7 +93,7 @@ public class SysUser implements Serializable {
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     /**
@@ -95,9 +101,7 @@ public class SysUser implements Serializable {
      */
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;
-
-
 
 }
